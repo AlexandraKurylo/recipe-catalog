@@ -13,13 +13,14 @@ export interface IThemeContext {
 
 export interface IRecipeCard {
   id: string;
-  question: string;
-  answer: string;
-  description: string;
-  resources: string[];
-  level: number;
-  completed: boolean;
-  editDate?: string;
+  createdAt: string;
+  name: string;
+  image: string;
+  cookTime: number;
+  difficulty: string;
+  calories: number;
+  origin: string;
+  recipeUrl: string;
 }
 
 export interface IRecipeCardState extends IRecipeCard {
