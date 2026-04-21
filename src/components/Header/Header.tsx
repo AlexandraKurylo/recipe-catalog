@@ -23,7 +23,7 @@ export const Header = () => {
       </p>
       <div className={cls.headerButtons}>
         <ThemeToggler />
-        {isAuth && <Button onClick={() => navigate("/addquestion")}>Add</Button>}
+        {isAuth && <Button onClick={() => navigate("/addrecipe")}>Add</Button>}
         <Button onClick={loginHandler} isActive={!isAuth}>
           {isAuth ? "Logout" : "Login"}
         </Button>
