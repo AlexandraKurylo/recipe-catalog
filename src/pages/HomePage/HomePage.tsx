@@ -105,7 +105,7 @@ export const HomePage = () => {
         </select>
 
         <select value={sortSelectValue} onChange={onSortSelectChangeHandler} className={cls.select}>
-          <option value="">sort by difficulty</option>
+          <option value="">sort by</option>
           <hr />
           <option value="sortBy=difficulty&order=asc">Difficulty (A-Z)</option>
           <option value="sortBy=difficulty&order=desc">Difficulty (Z-A)</option>

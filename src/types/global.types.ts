@@ -18,10 +18,11 @@ export interface IRecipeCard {
   image: string;
   cookTime: number;
   difficulty: string;
-  category: string;
   calories: number;
   origin: string;
   recipeUrl: string;
+  category: string;
+  editDate: string;
 }
 
 export interface IRecipeCardState extends IRecipeCard {
