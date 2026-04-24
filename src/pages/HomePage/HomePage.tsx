@@ -11,13 +11,13 @@ import { RecipeCardList } from "../../components/RecipeCardList";
 const DEFAULT_PER_PAGE = 10;
 
 export const HomePage = () => {
-  // Стейт для параметрів запиту (MockAPI: page, limit)
   const [searchParams, setSearchParams] = useState<string>(`?page=1&limit=${DEFAULT_PER_PAGE}`);
   const [recipes, setRecipes] = useState<IRecipeCard[]>([]);
   const [totalCount, setTotalCount] = useState<number>(0);
   const [searchValue, setSearchValue] = useState<string>("");
   const [sortSelectValue, setSortSelectValue] = useState<string>("");
   const [countSelectValue, setCountSelectValue] = useState<string>(String(DEFAULT_PER_PAGE));
+  const [categoryValue, setCategoryValue] = useState<string>("");
 
   const controlsContainerRef = useRef<HTMLDivElement | null>(null);
 
@@ -25,7 +25,8 @@ export const HomePage = () => {
     const response = await fetch(`${API_URL}/recipes${params}`);
     if (!response.ok) throw new Error("Помилка при отриманні рецептів");
     const data = await response.json();
-    const totalRes = await fetch(`${API_URL}/recipes`);
+    const totalUrl = categoryValue ? `${API_URL}/recipes?category=${categoryValue}` : `${API_URL}/recipes`;
+    const totalRes = await fetch(totalUrl);
     const totalData = await totalRes.json();
     setTotalCount(totalData.length);
     setRecipes(data);
@@ -56,6 +57,16 @@ export const HomePage = () => {
     setSearchValue(e.target.value);
   };
 
+  const onCategorySelectChangeHandler = (e: ChangeEvent<HTMLSelectElement>): void => {
+    const category = e.target.value;
+    setCategoryValue(category);
+    setSearchParams(
+      `?page=1&limit=${countSelectValue}${sortSelectValue ? `&${sortSelectValue}` : ""}${
+        category ? `&category=${category}` : ""
+      }`,
+    );
+  };
+
   const onSortSelectChangeHandler = (e: ChangeEvent<HTMLSelectElement>): void => {
     const sortVal = e.target.value;
     setSortSelectValue(sortVal);
@@ -83,6 +94,15 @@ export const HomePage = () => {
     <div className={cls.container}>
       <div className={cls.controlsContainer} ref={controlsContainerRef}>
         <SearchInput value={searchValue} onChange={onSearchChangeHandler} />
+
+        <select value={categoryValue} onChange={onCategorySelectChangeHandler} className={cls.select}>
+          <option value="">all categories</option>
+          <hr />
+          <option value="main">main dishes</option>
+          <option value="snack">snacks</option>
+          <option value="soup">soups</option>
+          <option value="dessert">desserts</option>
+        </select>
 
         <select value={sortSelectValue} onChange={onSortSelectChangeHandler} className={cls.select}>
           <option value="">sort by difficulty</option>

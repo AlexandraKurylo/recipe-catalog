@@ -18,6 +18,7 @@ export interface IRecipeCard {
   image: string;
   cookTime: number;
   difficulty: string;
+  category: string;
   calories: number;
   origin: string;
   recipeUrl: string;

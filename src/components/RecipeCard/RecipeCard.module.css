@@ -18,7 +18,9 @@
 
 .cardLabels {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
+  gap: 10px; 
+  flex-wrap: wrap;
   width: 100%;
 }
 
@@ -26,6 +28,7 @@
   width: 100%;
   height: 180px;
   border-radius: 8px;
+  margin-bottom: 25px;
   overflow: hidden;
   background-color: #f0f0f0;
 }
@@ -40,7 +43,6 @@
   font-size: 20px;
   line-height: 1.2;
   font-weight: 600;
-  margin: 5px 0;
   text-align: center; 
 }
 

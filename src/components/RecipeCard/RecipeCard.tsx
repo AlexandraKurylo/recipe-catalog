@@ -12,13 +12,28 @@ export interface IRecipeCardProps {
 
 export const RecipeCard: FC<IRecipeCardProps> = memo(({ recipe }) => {
   const navigate = useNavigate();
-  const levelVariant =
-    recipe.difficulty === "Easy" ? BADGE_ENUM.SUCCESS : recipe.difficulty === "Medium" ? BADGE_ENUM.WARNING : BADGE_ENUM.ALERT;
+
+  const difficultyMap: Record<string, { label: string; variant: BADGE_ENUM }> = {
+    "1": { label: "Easy", variant: BADGE_ENUM.SUCCESS },
+    "2": { label: "Medium", variant: BADGE_ENUM.WARNING },
+    "3": { label: "Hard", variant: BADGE_ENUM.ALERT },
+  };
+
+  const categoryLabels: Record<string, string> = {
+    main: "Main Dish",
+    snack: "Snack",
+    soup: "Soup",
+    dessert: "Dessert",
+  };
+
+  const diff = difficultyMap[recipe.difficulty] || { label: "Unknown", variant: BADGE_ENUM.PRIMARY };
+  const categoryLabel = categoryLabels[recipe.category] || "Other";
 
   return (
     <div className={cls.card}>
       <div className={cls.cardLabels}>
-        <Badge variant={levelVariant}>{recipe.difficulty}</Badge>
+        <Badge>{categoryLabel}</Badge>
+        <Badge variant={diff.variant}>{diff.label}</Badge>
       </div>
 
       <div className={cls.imageContainer}>
