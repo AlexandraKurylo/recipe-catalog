@@ -8,6 +8,7 @@ import { RecipeForm } from "../../components/RecipeForm/RecipeForm";
 import type { IRecipeCard } from "../../types/global.types";
 import cls from "./EditRecipePage.module.css";
 import type { RecipeFormValues } from "../../components/RecipeForm/recipeSchema";
+import { dateFormat } from "../../helpers/dateFormat";
 
 interface EditRecipeProps {
   initialState: IRecipeCard;
@@ -33,7 +34,7 @@ export const EditRecipe: FC<EditRecipeProps> = ({ initialState }) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         ...data,
-        editDate: new Date().toISOString(),
+        editDate: dateFormat(new Date()),
       }),
     });
 
