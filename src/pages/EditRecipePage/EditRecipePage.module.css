@@ -1,1 +1,39 @@
-.editRecipePage {}
+.formTitle {
+  margin: 25px auto;
+  width: fit-content;
+  color: var(--text-color);
+  font-size: 28px;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 50px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--card-bg-color);
+  box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.removeBtn {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: var(--alert-color);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.removeBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}

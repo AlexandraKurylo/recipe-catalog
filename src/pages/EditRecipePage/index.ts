@@ -1,1 +1,1 @@
-export * from "./EditRecipePage";
+export { EditRecipePage } from "./EditRecipePage";

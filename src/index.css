@@ -10,6 +10,8 @@
 
   --green-color: #219679;
 
+  --alert-color: rgb(197, 0, 0);
+
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
