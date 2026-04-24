@@ -1,20 +1,26 @@
 import { z } from "zod";
 
 const DIFFICULTY_LEVELS = ["1", "2", "3"] as const;
+const CATEGORIES = ["main", "soup", "snack", "dessert"] as const;
 
 export const recipeSchema = z.object({
-  name: z.string().min(2, "Назва надто коротка").max(50, "Назва надто довга"),
-  image: z.string().url("Введіть коректний URL зображення"),
+  name: z.string().min(2, "Name is too short").max(50, "Name is too long"),
+  image: z.string().url("Please enter a valid image URL"),
 
-  cookTime: z.number({ message: "Вкажіть час у хвилинах" }).min(1, "Час має бути більше 0").max(480),
+  cookTime: z.number({ message: "Enter cook time in minutes" }).min(1, "Time must be greater than 0").max(480),
 
-  difficulty: z.enum(DIFFICULTY_LEVELS, { message: "Оберіть складність" }),
+  difficulty: z.enum(DIFFICULTY_LEVELS, {
+    error: () => ({ message: "Please select difficulty" }),
+  }),
 
-  calories: z.number({ message: "Калорії мають бути числом" }).min(1, "Калорії повинні бути більше 0"),
+  calories: z.number({ message: "Calories must be a number" }).min(1, "Calories must be greater than 0"),
 
-  origin: z.string().min(2, "Вкажіть країну походження"),
-  recipeUrl: z.string().url("Введіть коректне посилання на рецепт"),
-  category: z.string().min(1, "Оберіть категорію"),
+  origin: z.string().min(2, "Enter country of origin"),
+  recipeUrl: z.string().url("Please enter a valid recipe URL"),
+
+  category: z.enum(CATEGORIES, {
+    error: () => ({ message: "Please select a category" }),
+  }),
 });
 
 export type RecipeFormValues = z.infer<typeof recipeSchema>;

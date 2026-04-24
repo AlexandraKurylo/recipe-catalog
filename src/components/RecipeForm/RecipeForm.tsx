@@ -26,13 +26,13 @@ export const RecipeForm: FC<RecipeFormProps> = ({ defaultValues, onSubmit, submi
     <form onSubmit={handleSubmit(onSubmit)} className={cls.form}>
       <div className={cls.formControl}>
         <label>Recipe Name:</label>
-        <input {...register("name")} placeholder="Borsch" />
+        <input {...register("name")} placeholder="e.g. Borsch" />
         {errors.name && <span className={cls.error}>{errors.name.message}</span>}
       </div>
 
       <div className={cls.formControl}>
         <label>Image URL:</label>
-        <input {...register("image")} placeholder="https://unsplash.com/..." />
+        <input {...register("image")} placeholder="https://example.com/image.jpg" />
         {errors.image && <span className={cls.error}>{errors.image.message}</span>}
       </div>
 
@@ -50,19 +50,43 @@ export const RecipeForm: FC<RecipeFormProps> = ({ defaultValues, onSubmit, submi
         </div>
       </div>
 
-      <div className={cls.formControl}>
-        <label>Difficulty:</label>
-        <select {...register("difficulty")}>
-          <option value="">Select difficulty</option>
-          <option value="1">Easy</option>
-          <option value="2">Medium</option>
-          <option value="3">Hard</option>
-        </select>
-        {errors.difficulty && <span className={cls.error}>{errors.difficulty.message}</span>}
+      <div className={cls.row}>
+        <div className={cls.formControl}>
+          <label>Difficulty:</label>
+          <select {...register("difficulty")}>
+            <option value="" disabled hidden>
+              Select difficulty
+            </option>
+            <option value="1">Easy</option>
+            <option value="2">Medium</option>
+            <option value="3">Hard</option>
+          </select>
+          {errors.difficulty && <span className={cls.error}>{errors.difficulty.message}</span>}
+        </div>
+
+        <div className={cls.formControl}>
+          <label>Category:</label>
+          <select {...register("category")}>
+            <option value="" disabled hidden>
+              Select category
+            </option>
+            <option value="main">Main Course</option>
+            <option value="soup">Soup</option>
+            <option value="snack">Snack</option>
+            <option value="dessert">Dessert</option>
+          </select>
+          {errors.category && <span className={cls.error}>{errors.category.message}</span>}
+        </div>
       </div>
 
       <div className={cls.formControl}>
-        <label>Original Link:</label>
+        <label>Origin (Country):</label>
+        <input {...register("origin")} placeholder="e.g. Ukraine" />
+        {errors.origin && <span className={cls.error}>{errors.origin.message}</span>}
+      </div>
+
+      <div className={cls.formControl}>
+        <label>Original Recipe Link:</label>
         <input {...register("recipeUrl")} placeholder="https://bbcgoodfood.com/..." />
         {errors.recipeUrl && <span className={cls.error}>{errors.recipeUrl.message}</span>}
       </div>

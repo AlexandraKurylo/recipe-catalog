@@ -1,1 +1,23 @@
-.addRecipePage {}
+.formTitle {
+  margin: 25px auto;
+  width: fit-content;
+  color: var(--text-color);
+  font-size: 28px;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 50px;
+  padding: 20px; 
+  border-radius: 10px;
+  background-color: var(--card-bg-color);
+  box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 480px) {
+  .formTitle {
+    font-size: 22px;
+    margin: 15px auto;
+  }
+}

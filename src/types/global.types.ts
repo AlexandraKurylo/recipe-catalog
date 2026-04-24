@@ -21,7 +21,7 @@ export interface IRecipeCard {
   calories: number;
   origin: string;
   recipeUrl: string;
-  category: string;
+  category: "main" | "soup" | "snack" | "dessert";
   editDate: string;
 }
 
