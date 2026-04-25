@@ -5,6 +5,7 @@ import cls from "./Header.module.css";
 import { AUTH_STORAGE } from "../../constants/global.constants";
 import { ThemeToggler } from "../../features/ThemeToggler";
 import { useAuth } from "../../hooks/useAuth";
+import { LuCookingPot } from "react-icons/lu";
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -17,10 +18,10 @@ export const Header = () => {
 
   return (
     <header className={cls.header}>
-      <p onClick={() => navigate("/")}>
-        <img src={ReactLogo} alt="react logo" />
-        <span>ReactCards</span>
-      </p>
+      <div className={cls.logo} onClick={() => navigate("/")}>
+        <LuCookingPot size={32} className={cls.logoIcon} />
+        <span>RecipeCatalog</span>
+      </div>
       <div className={cls.headerButtons}>
         <ThemeToggler />
         {isAuth && <Button onClick={() => navigate("/addrecipe")}>Add</Button>}

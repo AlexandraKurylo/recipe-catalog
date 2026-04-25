@@ -70,20 +70,26 @@ export const HomePage = () => {
   const onSortSelectChangeHandler = (e: ChangeEvent<HTMLSelectElement>): void => {
     const sortVal = e.target.value;
     setSortSelectValue(sortVal);
-    setSearchParams(`?page=1&limit=${countSelectValue}${sortVal ? `&${sortVal}` : ""}`);
+    setSearchParams(
+      `?page=1&limit=${countSelectValue}${sortVal ? `&${sortVal}` : ""}${categoryValue ? `&category=${categoryValue}` : ""}`,
+    );
   };
 
   const onCountSelectChangeHandler = (e: ChangeEvent<HTMLSelectElement>): void => {
     const limit = e.target.value;
     setCountSelectValue(limit);
-    setSearchParams(`?page=1&limit=${limit}${sortSelectValue ? `&${sortSelectValue}` : ""}`);
+    setSearchParams(
+      `?page=1&limit=${limit}${sortSelectValue ? `&${sortSelectValue}` : ""}${categoryValue ? `&category=${categoryValue}` : ""}`,
+    );
   };
 
   const paginationHandler = (e: MouseEvent<HTMLDivElement>): void => {
     const targetElement = e.target as HTMLElement;
     if (targetElement.tagName === "BUTTON") {
       const pageNum = targetElement.textContent;
-      setSearchParams(`?page=${pageNum}&limit=${countSelectValue}${sortSelectValue ? `&${sortSelectValue}` : ""}`);
+      setSearchParams(
+        `?page=${pageNum}&limit=${countSelectValue}${sortSelectValue ? `&${sortSelectValue}` : ""}${categoryValue ? `&category=${categoryValue}` : ""}`,
+      );
       controlsContainerRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   };
@@ -96,8 +102,10 @@ export const HomePage = () => {
         <SearchInput value={searchValue} onChange={onSearchChangeHandler} />
 
         <select value={categoryValue} onChange={onCategorySelectChangeHandler} className={cls.select}>
+          <option value="" disabled hidden>
+            Select category
+          </option>
           <option value="">all categories</option>
-          <hr />
           <option value="main">main dishes</option>
           <option value="snack">snacks</option>
           <option value="soup">soups</option>
@@ -105,12 +113,12 @@ export const HomePage = () => {
         </select>
 
         <select value={sortSelectValue} onChange={onSortSelectChangeHandler} className={cls.select}>
-          <option value="" disabled>
-            sort by
+          <option value="" disabled hidden>
+            Sort by
           </option>
-          <hr />
-          <option value="sortBy=difficulty&order=asc">Difficulty (A-Z)</option>
-          <option value="sortBy=difficulty&order=desc">Difficulty (Z-A)</option>
+          <option value="">default</option>
+          <option value="sortBy=difficulty&order=asc">difficulty | ASC</option>
+          <option value="sortBy=difficulty&order=desc">difficulty | DESC</option>
         </select>
 
         <select value={countSelectValue} onChange={onCountSelectChangeHandler} className={cls.select}>

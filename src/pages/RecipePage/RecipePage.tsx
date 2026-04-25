@@ -62,8 +62,8 @@ export const RecipePage = () => {
       {recipe && (
         <>
           <div className={cls.cardLabels}>
-            {diff && <Badge variant={diff.variant}>{diff.label}</Badge>}
             <Badge>{catLabel}</Badge>
+            {diff && <Badge variant={diff.variant}>{diff.label}</Badge>}
             {recipe.editDate && (
               <p className={cls.editDate}>
                 Edited: {recipe.editDate}

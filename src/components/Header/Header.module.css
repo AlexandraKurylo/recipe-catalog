@@ -19,6 +19,13 @@
   }
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
 .headerButtons {
   display: flex;
   justify-content: center;
