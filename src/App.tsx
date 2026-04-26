@@ -5,8 +5,8 @@ import { NotFoundPage } from "./pages/NotFoundPage";
 import { useAuth } from "./hooks/useAuth";
 import { ForbiddenPage } from "./pages/ForbiddenPage/ForbiddenPage";
 import { RecipePage } from "./pages/RecipePage";
-import { AddRecipePage } from "./pages/AddRecipePage";
-import { EditRecipePage } from "./pages/EditRecipePage";
+import { AddRecipePageLazy } from "./pages/AddRecipePage";
+import { EditRecipePageLazy } from "./pages/EditRecipePage";
 
 const ProtectedRoutes = () => {
   const { isAuth } = useAuth();
@@ -38,11 +38,11 @@ const router = createBrowserRouter([
         children: [
           {
             path: "addrecipe",
-            element: <AddRecipePage />,
+            element: <AddRecipePageLazy />,
           },
           {
             path: "editrecipe/:id",
-            element: <EditRecipePage />,
+            element: <EditRecipePageLazy />,
           },
         ],
       },

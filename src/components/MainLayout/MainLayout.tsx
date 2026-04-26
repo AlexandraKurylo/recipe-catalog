@@ -3,6 +3,7 @@ import cls from "./MainLayout.module.css";
 import { Header } from "../Header";
 import { Suspense } from "react";
 import { Loader } from "../Loader";
+import { ToastContainer } from "react-toastify";
 
 export const MainLayout = () => {
   const currentYear = new Date().getFullYear();
@@ -22,6 +23,8 @@ export const MainLayout = () => {
           </footer>
         </div>
       </div>
+
+      <ToastContainer />
     </>
   );
 };
