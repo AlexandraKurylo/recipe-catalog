@@ -6,7 +6,7 @@ import { Loader } from "../../components/Loader";
 import { EditRecipe } from "./EditRecipe";
 import type { IRecipeCard } from "../../types/global.types";
 
-export const EditRecipePage = () => {
+const EditRecipePage = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState<IRecipeCard | null>(null);
 
@@ -29,3 +29,5 @@ export const EditRecipePage = () => {
     </div>
   );
 };
+
+export default EditRecipePage;

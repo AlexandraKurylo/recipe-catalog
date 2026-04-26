@@ -7,7 +7,7 @@ import { RecipeForm } from "../../components/RecipeForm/RecipeForm";
 import cls from "./AddRecipePage.module.css";
 import type { RecipeFormValues } from "../../components/RecipeForm/recipeSchema";
 
-export const AddRecipePage = () => {
+const AddRecipePage = () => {
   const navigate = useNavigate();
 
   const [createRecipe, isPending] = useFetch(async (data: RecipeFormValues) => {
@@ -43,3 +43,5 @@ export const AddRecipePage = () => {
     </div>
   );
 };
+
+export default AddRecipePage;
