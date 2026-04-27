@@ -19,7 +19,7 @@
 .cardLabels {
   display: flex;
   justify-content: center;
-  gap: 10px; 
+  gap: 10px;
   flex-wrap: wrap;
   width: 100%;
 }
@@ -36,23 +36,23 @@
 .image {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
+  object-fit: cover;
 }
 
 .cardTitle {
   font-size: 24px;
   line-height: 1.2;
   font-weight: 600;
-  text-align: center; 
+  text-align: center;
 }
 
 .actions {
-  margin-top: auto; 
+  margin-top: auto;
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
 .actions button {
-  width: 100%; 
+  width: 100%;
 }

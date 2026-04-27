@@ -39,13 +39,13 @@ export const RecipeForm: FC<RecipeFormProps> = ({ defaultValues, onSubmit, submi
       <div className={cls.row}>
         <div className={cls.formControl}>
           <label>Cook Time (min):</label>
-          <input type="number" {...register("cookTime", { valueAsNumber: true })} />
+          <input type="number" min="1" {...register("cookTime", { valueAsNumber: true })} />
           {errors.cookTime && <span className={cls.error}>{errors.cookTime.message}</span>}
         </div>
 
         <div className={cls.formControl}>
           <label>Calories:</label>
-          <input type="number" {...register("calories", { valueAsNumber: true })} />
+          <input type="number" min="1" {...register("calories", { valueAsNumber: true })} />
           {errors.calories && <span className={cls.error}>{errors.calories.message}</span>}
         </div>
       </div>

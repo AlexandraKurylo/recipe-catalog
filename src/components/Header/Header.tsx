@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import ReactLogo from "../../assets/react.svg";
 import { Button } from "../Button";
 import cls from "./Header.module.css";
 import { AUTH_STORAGE } from "../../constants/global.constants";

@@ -88,7 +88,8 @@
 
 .recipeLink {
   font-size: 14px;
-  color: #3498db; /* або твій акцентний колір */
+  color: #3498db;
+  /* або твій акцентний колір */
   text-decoration: none;
   word-break: break-all;
 }

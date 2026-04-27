@@ -1,5 +1,5 @@
 import cls from "./NotFoundPage.module.css";
 
-interface NotFoundPageProps {}
-
-export const NotFoundPage = ({}: NotFoundPageProps) => <div className={cls.notFoundPage}>NotFoundPage Component</div>;
+export const NotFoundPage = () => {
+  return <h2 className={cls.title}>Not Found Page</h2>;
+};
