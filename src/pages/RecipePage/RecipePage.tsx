@@ -37,7 +37,7 @@ export const RecipePage = () => {
     setRecipe(data);
   });
 
-  const [updateRecipe, isUpdating] = useFetch(async (updatedData: Partial<IRecipeCard>) => {
+  const [_updateRecipe, isUpdating] = useFetch(async (updatedData: Partial<IRecipeCard>) => {
     const response = await fetch(`${API_URL}/recipes/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
