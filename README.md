@@ -92,6 +92,8 @@ src/
 └── main.tsx             # Application entry point
 ```
 
+---
+
 ### How to run a project locally
 
 Open a terminal and run the command:
