@@ -2,7 +2,7 @@
 
 ### 🌟 Project Overview
 
-ReactCards is a modern web application designed to serve as a centralized directory for culinary recipes from around the world. Instead of hosting full cooking instructions, the project acts as an aggregator where users can store essential information about various dishes (origin, calories, cook time) and keep direct links to the original full recipes. It’s a perfect tool for organizing a personal collection of favorite international meals in one place.
+RecipeCatalog is a modern web application designed to serve as a centralized directory for culinary recipes from around the world. Instead of hosting full cooking instructions, the project acts as an aggregator where users can store essential information about various dishes (origin, calories, cook time) and keep direct links to the original full recipes. It’s a perfect tool for organizing a personal collection of favorite international meals in one place.
 
 ### 🏞️ Project Previews
 
