@@ -1,4 +1,4 @@
-## Recipes Catalog — Global Recipe Hub
+## Recipe Catalog — Global Recipe Hub
 
 ### 🌟 Project Overview
 
@@ -7,8 +7,8 @@ ReactCards is a modern web application designed to serve as a centralized direct
 ### 🏞️ Project Previews
 
 <p align="center">
-   <img src="./src/assets/previews/preview-1.png" width="48%" alt="Home Page" />
-   <img src="./src/assets/previews/preview-2.png" width="48%" alt="Home Page Dark" />
+   <img src="./src/assets/previews/preview-1.png" width="100%" alt="Home Page" />
+   <img src="./src/assets/previews/preview-2.png" width="100%" alt="Home Page Dark" />
 </p>
 
 🔗 [Live Demo](https://recipe-catalog-2edg.vercel.app/)
