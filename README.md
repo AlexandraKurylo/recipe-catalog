@@ -1,73 +1,123 @@
-# React + TypeScript + Vite
+## Recipes Catalog — Global Recipe Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 🌟 Project Overview
 
-Currently, two official plugins are available:
+ReactCards is a modern web application designed to serve as a centralized directory for culinary recipes from around the world. Instead of hosting full cooking instructions, the project acts as an aggregator where users can store essential information about various dishes (origin, calories, cook time) and keep direct links to the original full recipes. It’s a perfect tool for organizing a personal collection of favorite international meals in one place.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### 🏞️ Project Previews
 
-## React Compiler
+<p align="center">
+   <img src="./src/assets/previews/preview-1.png" width="48%" alt="Home Page" />
+   <img src="./src/assets/previews/preview-2.png" width="48%" alt="Home Page Dark" />
+</p>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🔗 [Live Demo](https://recipe-catalog-2edg.vercel.app/)
 
-## Expanding the ESLint configuration
+### 🚀 Key Features & Functionality
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Centralized Recipe Management: Store key metadata (country of origin, difficulty, time) and external links to full instructions.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Search & Filter Sync: Advanced filtering by categories (Main dish, Soup, Dessert, Snack ) and sorting logic, all synchronized with URL searchParams.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Robust Form Validation: Powered by Zod and React Hook Form, ensuring data integrity (e.g., preventing negative values, validating image URLs).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Dynamic Theme Switching: Integrated Light and Dark modes with a custom soft-color palette for better readability.
+
+- Real-time Notifications: Success and error feedback using React-Toastify.
+
+- CRUD Operations: Fully functional Create, Read, Detele and Update operations integrated with a remote API.
+
+### 🛠 Technologies Used
+
+- Core: React 19, TypeScript, Vite
+
+- Routing: React Router 7
+
+- Backend Integration: MockAPI.io (RESTful API).
+
+- Form Management: React Hook Form, Zod (Validation Schema)
+
+- UI Components: React Icons (Lucide, Font Awesome), React-Toastify.
+
+- Development Tools: ESLint, Prettier
+
+- Automation: Generate React CLI
+
+- Styling: CSS Modules
+
+## Folder Structure
+
+```text
+src/
+├── assets/              # Static assets (images, icons, etc.)
+├── auth/                # Authentication logic
+│ └── AuthProvider/      # Auth context and provider components
+├── components/          # Reusable UI components
+│ ├── Badge/
+│ ├── Button/
+│ ├── Header/
+│ ├── Loader/
+│ ├── MainLayout/
+│ ├── RecipeCard/
+│ ├── RecipeCardList/
+│ ├── RecipeForm/
+│ ├── SearchInput/
+│ └── icons.tsx          # Shared icon components/library
+├── constants/           # App-wide constants
+│ └── global.constants.ts
+├── features/            # Complex functional modules
+│ └── ThemeToggler/      # Theme switching logic & UI
+├── helpers/             # Utility functions
+│ ├── dateFormat.ts
+│ └── delayFn.ts
+├── hooks/               # Custom React hooks
+│ ├── useAuth.ts
+│ ├── useFetch.ts
+│ └── useTheme.ts
+├── pages/               # Routed view components
+│ ├── AddRecipePage/
+│ ├── EditRecipePage/
+│ ├── ForbiddenPage/
+│ ├── HomePage/
+│ ├── NotFoundPage/
+│ └── RecipePage/
+├── theme/               # Styling configuration & provider
+│ ├── index.ts
+│ └── ThemeProvider.tsx
+├── types/               # Global TypeScript definitions
+│ ├── global.enums.ts
+│ └── global.types.ts
+├── App.tsx              # Main application shell & routing
+├── index.css            # Global styles
+└── main.tsx             # Application entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### How to run a project locally
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Open a terminal and run the command:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+#### 1. Clone the repository:
+
+```bash
+git clone [https://github.com/AlexandraKurylo/recipe-catalog](https://github.com/AlexandraKurylo/recipe-catalog)
 ```
+
+#### 2. Install dependencies:
+
+```bash
+   npm install
+```
+
+#### 3. Configure API (Optional):
+
+Ensure the API URL in src/constants/global.constants.ts points to your MockAPI endpoint.
+
+#### 4. Start the development server:
+
+```bash
+   npm run dev
+```
+
+#### 5. Open in browser:
+
+The app will be running at http://localhost:5173
