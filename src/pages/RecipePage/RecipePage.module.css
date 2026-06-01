@@ -45,7 +45,6 @@
   object-fit: cover;
 }
 
-/* Примарафечена сітка характеристик */
 .detailsGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -89,7 +88,6 @@
 .recipeLink {
   font-size: 14px;
   color: #3498db;
-  /* або твій акцентний колір */
   text-decoration: none;
   word-break: break-all;
 }

@@ -23,7 +23,7 @@ export const HomePage = () => {
 
   const [fetchData, isLoading, error] = useFetch(async (params: string) => {
     const response = await fetch(`${API_URL}/recipes${params}`);
-    if (!response.ok) throw new Error("Помилка при отриманні рецептів");
+    if (!response.ok) throw new Error("Error while receiving recipes");
     const data = await response.json();
     const totalUrl = categoryValue ? `${API_URL}/recipes?category=${categoryValue}` : `${API_URL}/recipes`;
     const totalRes = await fetch(totalUrl);
